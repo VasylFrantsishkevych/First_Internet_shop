@@ -1,4 +1,7 @@
 module.exports = {
+    basketService: require('./basketService'),
     brandService: require('./brandService'),
-    typeService: require('./typeServices'),
+    deviceService: require('./deviceService'),
+    typeService: require('./typeService'),
+    userService: require('./userService'),
 }
