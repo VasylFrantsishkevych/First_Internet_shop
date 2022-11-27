@@ -10,8 +10,9 @@ const TypeBar = observer(() => {
             {device.types.map(type =>
                 <li
                     style={{cursor: 'pointer'}}
-                    active={type.id === device.selectedType.id ? 'danger' : 'light'}
-                    onClick={() => device.setSelectedType(type)}
+                    onClick={() => {
+                        device.setSelectedType(type);
+                    }}
                     className="list-group-item"
                     key={type.id}>
                     {type.name}
