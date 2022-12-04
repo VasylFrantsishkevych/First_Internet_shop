@@ -1,34 +1,25 @@
 import React from 'react';
-import {Button, Form} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 
-const CreateType = ({show, onHide}) => {
+const CreateType = () => {
     return (
-        // <div className="modal-dialog modal-dialog-centered">
-        //     <h1 className="modal-title fs-5" id="staticBackdropLabel">Add Type</h1>
-        //     <div className="modal-body">
-        //         <Form>
-        //             <Form.Control
-        //                 placeholder={'Введіть назву типу'}
-        //             />
-        //         </Form>
-        //     </div>
-        //     <div className="modal-footer">
-        //         <Button variant="outline-danger" onClick={onHide}>Close</Button>
-        //         <Button variant="outline-success" onClick={onHide}>Add</Button>
-        //     </div>
-        // </div>
-        <div className="modal" tabIndex="-1">
-            <div className="modal-dialog">
+        <div className="modal fade" id="addType" tabIndex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Modal title</h5>
+                        <h1 className="modal-title fs-5" id="exampleModalLabel">Add Type</h1>
                     </div>
                     <div className="modal-body">
-                        <p>Modal body text goes here.</p>
+                        <Form>
+                            <Form.Control
+                                placeholder={'Введіть назву типу'}
+                            />
+                        </Form>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
+                        <button type="button" className="btn btn-primary">Add Type</button>
                     </div>
                 </div>
             </div>
