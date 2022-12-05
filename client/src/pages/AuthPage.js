@@ -1,21 +1,32 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Button, Card, Container, Form, Row} from "react-bootstrap";
-import {NavLink, useLocation} from "react-router-dom";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils";
+import {NavLink, useLocation, useNavigate} from "react-router-dom";
+import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils";
 import {login, registration} from "../services";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const AuthPage = () => {
+const AuthPage = observer(() => {
+    const {user} = useContext(Context)
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const location = useLocation();
     const isLogin = location.pathname === LOGIN_ROUTE
 
     const click = async () => {
-        if (isLogin) {
-            const response = await login();
-        } else {
-            const response = await registration(email, password);
-            console.log(response)
+        try {
+            let data;
+            if (isLogin) {
+                data = await login(email, password);
+            } else {
+                data = await registration(email, password);
+            }
+            user.setUser(user)
+            user.setIsAuth(true)
+            navigate(SHOP_ROUTE)
+        } catch (e) {
+            alert(e.response.data.message)
         }
     }
 
@@ -61,6 +72,6 @@ const AuthPage = () => {
             </Card>
         </Container>
     );
-};
+});
 
 export {AuthPage};
