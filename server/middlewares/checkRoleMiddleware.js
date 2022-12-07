@@ -19,7 +19,7 @@ module.exports = function (role) {
             req.user = decoded;
             next();
         } catch (e) {
-            res.status(statusCode.UNAUTHORIZED).json({message: 'НЕ авторизований'})
+            res.status(statusCode.UNAUTHORIZED).json({message: 'Нe авторизований'})
         }
     }
 }

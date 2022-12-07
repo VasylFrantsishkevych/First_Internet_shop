@@ -7,6 +7,7 @@ const CreateType = () => {
     const addType = () => {
         createType({name: value}).then(data => {
             setValue('');
+            console.log(data, 'createType')
         })
     }
 

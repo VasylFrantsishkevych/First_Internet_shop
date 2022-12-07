@@ -8,23 +8,23 @@ import {Context} from "../index";
 
 const AuthPage = observer(() => {
     const {user} = useContext(Context)
+    const location = useLocation();
     const navigate = useNavigate();
+    const isLogin = location.pathname === LOGIN_ROUTE
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const location = useLocation();
-    const isLogin = location.pathname === LOGIN_ROUTE
 
     const click = async () => {
         try {
             let data;
             if (isLogin) {
                 data = await login(email, password);
+                navigate(SHOP_ROUTE)
             } else {
                 data = await registration(email, password);
             }
             user.setUser(user)
             user.setIsAuth(true)
-            navigate(SHOP_ROUTE)
         } catch (e) {
             alert(e.response.data.message)
         }
