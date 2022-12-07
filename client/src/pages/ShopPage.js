@@ -12,7 +12,7 @@ const ShopPage = () => {
         fetchType().then(data => device.setTypes(data))
         fetchBrand().then(data => device.setBrands(data))
         fetchDevice().then(data => device.setDevices(data.rows))
-    }, [])
+    }, [device])
     return (
         <Container className="mt-2">
             <Row>

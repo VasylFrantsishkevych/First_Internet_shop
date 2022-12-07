@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Container} from "react-bootstrap";
 import {CreateBrand, CreateDevice, CreateType} from "../components";
+import modal from "bootstrap/js/src/modal";
 
 const AdminPage = () => {
     return (
