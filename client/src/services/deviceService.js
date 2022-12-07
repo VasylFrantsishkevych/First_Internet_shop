@@ -4,8 +4,10 @@ export const createDevice = async (type) => {
     const {data} = await $authHost.post('device', type)
     return data
 }
-export const fetchDevice = async () => {
-    const {data} = await $host.get('device')
+export const fetchDevice = async (typeId, brandId, page, limit = 5 ) => {
+    const {data} = await $host.get('device', {params: {
+            typeId, brandId, page, limit
+        }})
     return data
 }
 
